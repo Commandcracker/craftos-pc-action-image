@@ -40,4 +40,5 @@ jobs:
               with:
                   context: .
                   push: true
+                  tags: ${{ env.REGISTRY }}/commandcracker/craftos-pc-action-image
                   labels: ${{ steps.meta.outputs.labels }}
