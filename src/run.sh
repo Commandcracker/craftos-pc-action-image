@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Fix pulseaudio "Home directory not accessible: Permission denied"
 HOME=/tmp/$USER
 
 # Ensure that default values are set
