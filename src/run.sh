@@ -32,15 +32,15 @@ if [[ ! -z $ID ]]; then
 fi
 
 if [[ -z $DISABLE_TWEAKS ]]; then
-    MOUNT_TWEAKS="--mount /rom/autorun=/opt/craftos-pc-action/craftos-pc-tweaks"
+    MOUNT_TWEAKS="--mount-rw /rom/autorun=/opt/craftos-pc-action/craftos-pc-tweaks"
 fi
 
 if [[ -z $DISABLE_DEFAULT_SETTINGS ]]; then
-    MOUNT_DEFAULT_SETTINGS="--mount /=/opt/craftos-pc-action/settings"
+    MOUNT_DEFAULT_SETTINGS="--mount-rw /=/opt/craftos-pc-action/settings"
 fi
 
 if [[ -z $DISABLE_ROOT ]]; then
-    MOUNT_ROOT="--mount /=$ROOT"
+    MOUNT_ROOT="--mount-rw /=$ROOT"
 fi
 
 if [[ -z $DISABLE_HEADLESS ]]; then
