@@ -12,4 +12,4 @@ COPY src/.settings /opt/craftos-pc-action/settings/.settings
 COPY src/craftos-pc-tweaks/lua /opt/craftos-pc-action/craftos-pc-tweaks
 COPY src/run.sh /opt/craftos-pc-action/run.sh
 
-CMD bash -c "HOME=/tmp/\$USER pulseaudio --start"; bash /opt/craftos-pc-action/run.sh
+CMD bash /opt/craftos-pc-action/run.sh

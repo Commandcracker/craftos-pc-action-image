@@ -1,5 +1,7 @@
 #!/bin/bash
 
+HOME=/tmp/$USER
+
 # Ensure that default values are set
 if [[ -z $TIMEOUT_SIGNAL ]]; then
     TIMEOUT_SIGNAL="HUP"
