@@ -6,7 +6,8 @@ RUN set -eux; \
     add-apt-repository ppa:jackmacwindows/ppa; \
     apt-get update; \
     apt-get install -y libx11-dev craftos-pc craftos-pc-accelerated; \
-    echo 'pcm.!default {type plug slave.pcm "null"}' > /etc/asound.conf
+    echo 'pcm.!default {type plug slave.pcm "null"}' > /etc/asound.conf; \
+    bash -c "chown -R \$USER:\$USER \$HOME/"
 
 COPY src/.settings /opt/craftos-pc-action/settings/.settings
 COPY src/craftos-pc-tweaks/lua /opt/craftos-pc-action/craftos-pc-tweaks
