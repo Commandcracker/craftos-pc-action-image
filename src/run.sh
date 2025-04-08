@@ -26,6 +26,8 @@ else
     COMMAND="craftos-luajit"
 fi
 
+COMMAND="craftos-luajit"
+
 if [[ ! -z $ID ]]; then
     SET_ID="--id $ID"
 else
@@ -69,6 +71,9 @@ fi
 if [[ -z $DISABLE_TIMEOUT_VERBOSE ]]; then
     TIMEOUT_VERBOSE="--verbose"
 fi
+
+# Print CraftOS-PC Version
+echo $($COMMAND --version | head -n 1)
 
 # Run CraftOS-PC
 timeout --signal=$TIMEOUT_SIGNAL $TIMEOUT_VERBOSE $TIMEOUT_ARGUMENTS $TIMEOUT $COMMAND \
