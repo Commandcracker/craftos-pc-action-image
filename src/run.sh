@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# This needs to be done because github action will change your pwd
+if [[ -n $LUAJIT ]]; then
+    ln --symbolic /craftos2-luajit craftos2-luajit
+fi
+
 # Fix pulseaudio "Home directory not accessible: Permission denied"
 HOME=/tmp/$USER
 
@@ -25,8 +30,6 @@ if [[ -z $LUAJIT ]]; then
 else
     COMMAND="craftos-luajit"
 fi
-
-COMMAND="craftos-luajit"
 
 if [[ ! -z $ID ]]; then
     SET_ID="--id $ID"
@@ -81,3 +84,14 @@ timeout --signal=$TIMEOUT_SIGNAL $TIMEOUT_VERBOSE $TIMEOUT_ARGUMENTS $TIMEOUT $C
     $MOUNT_DEFAULT_SETTINGS \
     $MOUNT_TWEAKS \
     $SET_ID $SET_DIRECTORY $OPTIONS
+
+# Capture exit status
+exit_status=$?
+
+# Cleanup
+if [[ -n $LUAJIT ]]; then
+    rm craftos2-luajit > /dev/null 2>&1
+fi
+
+# Exit with captured exit status
+exit $exit_status
